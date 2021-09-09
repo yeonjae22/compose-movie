@@ -1,5 +1,6 @@
 package com.example.movie.ui.components
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -7,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,15 +16,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
+import com.example.movie.DetailActivity
 import com.example.movie.R
 import com.example.movie.model.MovieItem
 
+@ExperimentalMaterialApi
 @Composable
 fun MovieList(movies: List<MovieItem>) {
     LazyColumn {
@@ -32,14 +37,19 @@ fun MovieList(movies: List<MovieItem>) {
     }
 }
 
+@ExperimentalMaterialApi
 @Composable
 fun MovieItem(movie: MovieItem) {
+    val context = LocalContext.current
     Card(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth(),
         elevation = 0.dp,
-        backgroundColor = Color.White
+        backgroundColor = Color.White,
+        onClick = {
+            context.startActivity(Intent(context, DetailActivity::class.java))
+        }
     ) {
         Row {
             MovieImage(movie)
