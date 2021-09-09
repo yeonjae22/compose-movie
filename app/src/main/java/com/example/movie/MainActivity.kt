@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.movie.ui.movie.ExampleScreen
+import com.example.movie.ui.movie.MovieScreen
 import com.example.movie.ui.movie.MovieViewModel
 import com.example.movie.ui.theme.MovieTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             MovieTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     val viewModel = hiltViewModel<MovieViewModel>()
-                    ExampleScreen(viewModel)
+                    MovieScreen(viewModel)
                 }
             }
         }

@@ -41,7 +41,7 @@ class MovieViewModel @Inject constructor(private val repository: MovieRepository
 }
 
 @Composable
-fun ExampleScreen(
+fun MovieScreen(
     viewModel: MovieViewModel = viewModel()
 ) {
     viewModel.getMovieList("겨울", 1)
