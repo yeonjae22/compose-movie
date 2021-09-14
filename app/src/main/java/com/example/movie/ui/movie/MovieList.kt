@@ -1,4 +1,4 @@
-package com.example.movie.ui.components
+package com.example.movie.ui.movie
 
 import android.content.Intent
 import androidx.compose.foundation.Image

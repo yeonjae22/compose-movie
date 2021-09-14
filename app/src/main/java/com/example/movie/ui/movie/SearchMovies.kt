@@ -1,4 +1,4 @@
-package com.example.movie.ui.components
+package com.example.movie.ui.movie
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,7 +17,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.movie.R
-import com.example.movie.ui.movie.MovieViewModel
 
 @Composable
 fun SearchMovies() {
