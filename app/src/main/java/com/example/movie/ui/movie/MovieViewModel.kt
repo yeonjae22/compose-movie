@@ -3,10 +3,10 @@ package com.example.movie.ui.movie
 import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.movie.data.repository.MovieRepository
 import com.example.movie.model.MovieItem
 import com.example.movie.ui.components.MovieList
@@ -41,11 +41,8 @@ class MovieViewModel @Inject constructor(private val repository: MovieRepository
 }
 
 @Composable
-fun MovieScreen(
-    viewModel: MovieViewModel = viewModel()
-) {
-    viewModel.getMovieList("겨울", 1)
-
+fun MovieScreen() {
+    val viewModel = hiltViewModel<MovieViewModel>()
     val movieList = viewModel.movieList.observeAsState()
     movieList.value?.let { MovieList(it) }
 }

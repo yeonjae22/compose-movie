@@ -3,11 +3,11 @@ package com.example.movie
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.movie.ui.components.SearchMovies
 import com.example.movie.ui.movie.MovieScreen
-import com.example.movie.ui.movie.MovieViewModel
 import com.example.movie.ui.theme.MovieTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,8 +20,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             MovieTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    val viewModel = hiltViewModel<MovieViewModel>()
-                    MovieScreen(viewModel)
+                    Column {
+                        SearchMovies()
+                        MovieScreen()
+                    }
                 }
             }
         }
